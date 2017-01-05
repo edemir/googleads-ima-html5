@@ -34,18 +34,16 @@ function setUpIMA() {
 
   // Request video ads.
   var adsRequest = new google.ima.AdsRequest();
-  adsRequest.adTagUrl = 'https://pubads.g.doubleclick.net/gampad/ads?' +
-      'sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&' +
-      'impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&' +
-      'cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=';
+adsRequest.adTagUrl = 'https://pubads.g.doubleclick.net/gampad/ads?ad_rule=0&sz=640x480&iu=/37011203/Startv_Desktop/Programlar/Ozlem-Denizmenle-Kadinca_Bolum/PRE&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=[description_url]&correlator=[timestamp]';
+
 
   // Specify the linear and nonlinear slot sizes. This helps the SDK to
   // select the correct creative if multiple are returned.
-  adsRequest.linearAdSlotWidth = 640;
-  adsRequest.linearAdSlotHeight = 400;
+  adsRequest.linearAdSlotWidth = 351;
+  adsRequest.linearAdSlotHeight = 345;
 
-  adsRequest.nonLinearAdSlotWidth = 640;
-  adsRequest.nonLinearAdSlotHeight = 150;
+  adsRequest.nonLinearAdSlotWidth = 351;
+  adsRequest.nonLinearAdSlotHeight = 345;
 
   adsLoader.requestAds(adsRequest);
 }
@@ -65,7 +63,7 @@ function playAds() {
 
   try {
     // Initialize the ads manager. Ad rules playlist will start at this time.
-    adsManager.init(640, 360, google.ima.ViewMode.NORMAL);
+    adsManager.init(351, 345, google.ima.ViewMode.NORMAL);
     // Call play to start showing the ad. Single video and overlay ads will
     // start at this time; the call will be ignored for ad rules.
     adsManager.start();
