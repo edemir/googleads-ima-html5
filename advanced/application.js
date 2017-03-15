@@ -14,6 +14,7 @@ var Application = function() {
       this.bind_(this, this.onSampleAdTagClick_),
       false);
   this.console_ = document.getElementById('console');
+  this.ad_progress_ = document.getElementById('ad_progress');
   this.playButton_ = document.getElementById('playpause');
   this.playButton_.addEventListener(
       'click',
@@ -71,6 +72,10 @@ Application.prototype.log = function(message) {
   console.log(message);
   this.console_.innerHTML = this.console_.innerHTML + '<br/>' + message;
 };
+
+Application.prototype.setAdProgress = function(message) {
+  this.ad_progress_.innerHTML = message;
+}
 
 Application.prototype.resumeAfterAd = function() {
   this.videoPlayer_.play();
