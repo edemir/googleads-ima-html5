@@ -158,7 +158,7 @@ Ads.prototype.onAdEvent_ = function(adEvent) {
 	    this.podInfos[podKey] = podInfo;
             this.intervals[podKey] = setInterval(function(adsManager, application, podInfo) {
                 return function() {
-                    const remainingTime = Math.floor(adsManager.getRemainingTime());
+                    const remainingTime = Math.ceil(adsManager.getRemainingTime());
 		    if (remainingTime >= 0) {
 			    var total = podInfo.adDurations.slice(0, podInfo.currentAdPosition-1).reduce((e,x)=>e+x, 0);
 		    const podRemainingTime = (podInfo.duration - total  - podInfo.adDurations[podInfo.currentAdPosition-1]) + remainingTime;
